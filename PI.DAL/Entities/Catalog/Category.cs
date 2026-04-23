@@ -5,14 +5,14 @@ public class Category : BaseEntity
     public string Name { get; private set; } = null!;
     public string Description { get; private set; } = null!;
 
-    public ICollection<Product> Products { get; private set; }
+    public virtual ICollection<Product> Products { get; private set; } = null!;
 
     protected Category()
     {
         Products = new List<Product>();
     }
 
-    private Category(string name, string description)
+    private Category(string name, string description) : this()
     {
         Name = name;
         Description = description;
